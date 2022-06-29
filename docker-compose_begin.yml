@@ -25,8 +25,8 @@ services:
         MYSQL_DATABASE: my_wiki
         MYSQL_ROOT_PASSWORD: test
     volumes:
-      - db:/var/lib/mysql
+      - database:/var/lib/mysql
 
 volumes:
   images:
-  db:
+  database:
