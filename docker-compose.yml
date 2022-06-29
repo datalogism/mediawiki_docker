@@ -32,8 +32,8 @@ services:
       MYSQL_PASSWORD: dbpedia2022
       MYSQL_RANDOM_ROOT_PASSWORD: 'no'
     volumes:
-      - db:/var/lib/mysql
+      - database:/var/lib/mysql
 
 volumes:
   images:
-  db:
+  database:
