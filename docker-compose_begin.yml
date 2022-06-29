@@ -22,8 +22,8 @@ services:
     restart: always
     environment:
       # @see https://phabricator.wikimedia.org/source/mediawiki/browse/master/includes/DefaultSettings.php
-        MYSQL_DATABASE: "my_wiki"
-        MYSQL_ROOT_PASSWORD: "test
+        MYSQL_DATABASE: my_wiki
+        MYSQL_ROOT_PASSWORD: test
     volumes:
       - db:/var/lib/mysql
 
