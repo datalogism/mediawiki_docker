@@ -2,9 +2,14 @@
 
 extends https://github.com/wikimedia/mediawiki-docker
 
+## FIRST RUN
+
+* ``` sudo systemctl enable docker ```
+* ``` sudo docker-compose -f docker-compose _begin.yml up ```
+* 
+
 ## WHICH EXTENSION INSTALLING ?
 https://fr.wikipedia.org/wiki/Special:Version
-https://github.com/dbpedia/extraction-framework/wiki/DBpedia-Abstract-Extraction-step-by-step-guide
 
 ## Import
 
@@ -20,9 +25,7 @@ files need to be decompressed...
 
 http://localhost:8080/api.php?action=query&format=json&prop=extracts&titles=1545
 
-## BUILD DOCKER 
 
-``` sudo systemctl enable docker ```
 
 ## TO DO 
 * CAN WE AUTOMATE THE CREATION OF A WIKI ? 
