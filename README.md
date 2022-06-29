@@ -5,8 +5,8 @@ extends https://github.com/wikimedia/mediawiki-docker
 ## FIRST RUN
 
 * ``` sudo systemctl enable docker ```
-* ``` sudo docker-compose -f docker-compose _begin.yml up ```
-* 
+* ``` sudo docker-compose -f docker-compose_begin.yml up ```
+* docker-compose rm --stop --force
 
 ## WHICH EXTENSION INSTALLING ?
 https://fr.wikipedia.org/wiki/Special:Version
