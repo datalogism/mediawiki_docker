@@ -3,10 +3,17 @@
 extends https://github.com/wikimedia/mediawiki-docker
 
 ## FIRST RUN
-
+* ``` docker-compose rm --stop --force ```
 * ``` sudo systemctl enable docker ```
 * ``` sudo docker-compose -f docker-compose_begin.yml up ```
-* docker-compose rm --stop --force
+* go to http://localhost:8080/ > click on Setup Wiki
+* Enter "database" as hostname / and MYSQL root password definied in docker-compose_begin.yml
+> SAVE FILE in docker dir as the fr example
+/!\ change if needed > add packages or delete some wfLoadSkin( 'MinervaNeue' ); for example get me errors
+## FR example
+* Maping between LocalSettings.php and LocalLanguageAdapted setting in docker-compose_fr.yml 
+* sudo docker-compose -f docker-compose_fr.yml up -d --build --force-recreate 
+
 
 ## WHICH EXTENSION INSTALLING ?
 https://fr.wikipedia.org/wiki/Special:Version
