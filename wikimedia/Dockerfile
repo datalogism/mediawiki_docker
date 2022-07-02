@@ -4,7 +4,7 @@ USER root
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends apt-utils apt-utils git pigz pbzip2 bzip2 
 ADD dumps ./var/data/dumps
-RUN chmod -R +x dumps
+RUN chmod -R 755 dumps
 RUN chmod -R 755 includes
 RUN chmod -R 775 extensions
 RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Babel.git Babel --branch REL1_37
