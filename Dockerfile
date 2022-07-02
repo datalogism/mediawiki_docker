@@ -8,6 +8,7 @@ RUN apt-get install -y --no-install-recommends apt-utils apt-utils git pigz pbzi
 #RUN chmod -R 755 /var/data/dumps
 COPY dumps /var/data/dumps
 RUN bunzip2 /var/data/*
+RUN chmod -R 755 /var/data/dumps
 RUN chmod -R 755 includes
 RUN chmod -R 775 extensions
 RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Babel.git Babel --branch REL1_37
@@ -30,3 +31,4 @@ RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions
 # && git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TextExtracts.git
 #https://github.com/wikimedia/mediawiki-extensions-TextExtracts.git
 # && git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ImageMap.git
+RUN cd maintenance && php importDump.php --conf ../LocalSettings.php /var/data/dumps/*xml --username-prefix=""
