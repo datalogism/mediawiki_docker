@@ -4,7 +4,7 @@ USER root
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends apt-utils apt-utils git pigz pbzip2 bzip2 
 RUN mkdir -p /var/data/dumps
-COPY dumps/* /var/data/dumps/
+COPY dumps /var/data/dumps/
 RUN chmod -R 755 /var/data/dumps
 RUN chmod -R 755 includes
 RUN chmod -R 775 extensions
