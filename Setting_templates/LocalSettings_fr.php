@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "my_wiki";
-$wgMetaNamespace = "My_wiki";
+$wgSitename = "wiki_fr";
+$wgMetaNamespace = "Wiki_fr";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -41,7 +41,7 @@ $wgLogos = [
 	'1x' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
 	
 	
-	'icon' => "$wgResourceBasePath/resources/assets/change-your-logo-icon.svg",
+	'icon' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
 ];
 
 ## UPO means: this is also a user preference option
@@ -74,7 +74,7 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = CACHE_ACCEL;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
@@ -102,14 +102,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "e17544052fd9cd8ae751a1389fc519466dc621a2c0aa8f415349916e4dba3e62";
+$wgSecretKey = "4b0ca20c5c8212256dcedcab39547bba51ad750f1ece45aa84108fa0b9691434";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "309c2cd88c415eb7";
+$wgUpgradeKey = "b6c10a999ed266ec";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -128,12 +128,44 @@ $wgDefaultSkin = "vector";
 
 # Enabled skins.
 # The following skins were automatically enabled:
-wfLoadSkin( 'MinervaNeue' );
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
 
 
+# Enabled extensions. Most of the extensions are enabled by adding
+# wfLoadExtension( 'ExtensionName' );
+# to LocalSettings.php. Check specific extension documentation for more details.
+# The following extensions were automatically enabled:
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'Cite' );
+wfLoadExtension( 'ImageMap' );
+wfLoadExtension( 'InputBox' );
+wfLoadExtension( 'Math' );
+wfLoadExtension( 'OATHAuth' );
+wfLoadExtension( 'PageImages' );
+wfLoadExtension( 'ParserFunctions' );
+wfLoadExtension( 'Poem' );
+wfLoadExtension( 'Scribunto' );
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+wfLoadExtension( 'TemplateData' );
+wfLoadExtension( 'TextExtracts' );
+
+
 # End of automatically generated settings.
 # Add more configuration options below.
 
+
+wfLoadExtension( 'Babel' );
+wfLoadExtension( 'BiblioPlus' );
+wfLoadExtension( 'Charinsert' );
+wfLoadExtension( 'LabeledSectionTransclusion' );
+wfLoadExtension( "Interwiki" );
+# End of automatically generated settings.
+# Add more configuration options below.
+$wgPFEnableStringFunctions = true;
+# Textract config
+$wgExtractsRemoveClasses = array( '.metadata', 'span.coordinates', 'span.geo-multi-punct', 'span.geo-nondefault', '#coordinates', '.reflist', '.citation', '#toc', '.tocnumber', '.references', '.reference', '.noprint');
+# Scribunto 
+
+$wgScribuntoDefaultEngine = 'luastandalone';
