@@ -13,6 +13,7 @@ extends https://github.com/wikimedia/mediawiki-docker
 ## FR example
 * Maping between LocalSettings.php and LocalLanguageAdapted setting in docker-compose_fr.yml 
 * sudo docker-compose -f docker-compose_fr.yml up -d --build --force-recreate 
+* SUDO docker run -it --rm mediawiki_custom /bin/bash 
 
 
 ## WHICH EXTENSION INSTALLING ?
