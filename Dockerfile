@@ -6,7 +6,7 @@ RUN apt-get install -y --no-install-recommends apt-utils apt-utils git pigz pbzi
 #RUN mkdir -p /var/data/dumps
 #COPY ./dumps /var/data/dumps/
 #RUN chmod -R 755 /var/data/dumps
-COPY . /var/data/
+COPY dumps /var/data/dumps
 RUN chmod -R 755 includes
 RUN chmod -R 775 extensions
 RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Babel.git Babel --branch REL1_37

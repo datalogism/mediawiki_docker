@@ -6,7 +6,7 @@ version: '3'
 services:
   mediawiki:
     build :
-            context: ./wikimedia
+            context: .
             dockerfile: Dockerfile
     image: mediawiki_custom
     restart: always
