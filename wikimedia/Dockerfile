@@ -3,7 +3,7 @@ FROM mediawiki:1.37
 USER root
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends apt-utils apt-utils git pigz pbzip2 bzip2 
-ADD ./dumps/* ./dumps/*
+ADD /dumps/ ./var/data/dumps
 RUN chmod -R +x dumps
 RUN chmod -R 755 includes
 RUN chmod -R 775 extensions
