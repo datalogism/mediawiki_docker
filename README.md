@@ -2,6 +2,8 @@
 
 extends https://github.com/wikimedia/mediawiki-docker
 
+See https://blog.programster.org/deploy-your-own-mediawiki-wiki for more informations
+
 ## FIRST RUN
 * ``` docker-compose rm --stop --force ```
 * ``` sudo systemctl enable docker ```
