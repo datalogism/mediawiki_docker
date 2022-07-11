@@ -7,7 +7,7 @@ services:
   mediawiki:
     build :
       context: .
-      dockerfile: Dockerfile_fr
+      dockerfile: Dockerfile_en
     image: mediawiki_custom
     restart: always
     ports:

@@ -57,10 +57,13 @@ $wgDBserver = "database";
 $wgDBname = "my_wiki";
 $wgDBuser = "wikiuser";
 $wgDBpassword = "example";
-
+$wgDBadminuser      = "root";
+$wgDBadminpassword  = "FRDbpedia2022";
 # MySQL specific settings
 $wgDBprefix = "";
-
+# To allow all registered editors to import (not recommended)
+$wgGroupPermissions['user']['import'] = true;
+$wgGroupPermissions['user']['importupload'] = true;
 # MySQL table options to use during installation or update
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 
@@ -105,14 +108,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "f685c11bc95b00a58f2a793631bc130eafd9094af4b78103c7511094c876393c";
+$wgSecretKey = "d98570a72b733f56c9ac59ba4fbfbfa413934cfcaf928a7217ca76aae04c8763";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "b42cef84ef0b9717";
+$wgUpgradeKey = "3dfae81a6748b670";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -142,6 +145,7 @@ wfLoadSkin( 'Vector' );
 # The following extensions were automatically enabled:
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
+wfLoadExtension( 'CiteThisPage' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'Interwiki' );
@@ -149,6 +153,7 @@ wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'ReplaceText' );
 wfLoadExtension( 'Scribunto' );
+wfLoadExtension( 'SecureLinkFixer' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );

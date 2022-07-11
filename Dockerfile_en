@@ -1,0 +1,15 @@
+FROM mediawiki:1.37
+
+USER root
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends apt-utils apt-utils git pigz pbzip2 bzip2 
+COPY LocalSettings_en.php /var/www/html/LocalSettings.php
+COPY dumps/en /var/data/dumps
+RUN bunzip2 /var/data/dumps/*.bz2
+RUN chmod -R 755 includes
+RUN chmod -R 775 extensions
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Babel.git Babel --branch REL1_37
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-LabeledSectionTransclusion.git LabeledSectionTransclusion --branch REL1_37
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Math.git Math --branch REL1_37
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-BiblioPlus.git BiblioPlus --branch REL1_37
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Charinsert.git Charinsert --branch REL1_37

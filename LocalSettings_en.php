@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "wiki_fr";
-$wgMetaNamespace = "Wiki_fr";
+$wgSitename = "wiki_en";
+$wgMetaNamespace = "Wiki_en";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -95,7 +95,7 @@ $wgPingback = true;
 $wgShellLocale = "C.UTF-8";
 
 # Site language code, should be one of the list in ./languages/data/Names.php
-$wgLanguageCode = "fr";
+$wgLanguageCode = "en";
 
 # Time zone
 $wgLocaltimezone = "UTC";
@@ -105,14 +105,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "f685c11bc95b00a58f2a793631bc130eafd9094af4b78103c7511094c876393c";
+$wgSecretKey = "9887ef8749e1310339ca58cdec69b27a101ddc1a315423f6f91291e28af5b52c";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "b42cef84ef0b9717";
+$wgUpgradeKey = "769d4c44f3703cb1";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -149,6 +149,7 @@ wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'ReplaceText' );
 wfLoadExtension( 'Scribunto' );
+wfLoadExtension( 'SecureLinkFixer' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );

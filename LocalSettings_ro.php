@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "wiki_fr";
-$wgMetaNamespace = "Wiki_fr";
+$wgSitename = "wikipedia";
+$wgMetaNamespace = "Wikipedia";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -54,9 +54,9 @@ $wgEmailAuthentication = true;
 ## Database settings
 $wgDBtype = "mysql";
 $wgDBserver = "database";
-$wgDBname = "my_wiki";
-$wgDBuser = "wikiuser";
-$wgDBpassword = "example";
+$wgDBname = "wikipedia";
+$wgDBuser = "wikipedia";
+$wgDBpassword = "wikipedia";
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -95,7 +95,7 @@ $wgPingback = true;
 $wgShellLocale = "C.UTF-8";
 
 # Site language code, should be one of the list in ./languages/data/Names.php
-$wgLanguageCode = "fr";
+$wgLanguageCode = "en";
 
 # Time zone
 $wgLocaltimezone = "UTC";
@@ -105,14 +105,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "f685c11bc95b00a58f2a793631bc130eafd9094af4b78103c7511094c876393c";
+$wgSecretKey = "a8e10c3890318d278a2d4d30c01843851f7e831455be6184a9484083e56f5309";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "b42cef84ef0b9717";
+$wgUpgradeKey = "3db7787343d965e4";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -142,9 +142,9 @@ wfLoadSkin( 'Vector' );
 # The following extensions were automatically enabled:
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
+wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
-wfLoadExtension( 'Interwiki' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'ReplaceText' );
