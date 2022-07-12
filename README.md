@@ -20,6 +20,35 @@ Each mediawiki clone must be initialized as follow :
 
 /!\ change if needed > add packages or delete some wfLoadSkin( 'MinervaNeue' ); for example get me errors
 
+## /!\ CUSTUMIZING LocalSettings.php
+
+Some module of mediawiki needs to be configured for working properly, for it you need to add in your **LocalSettings.php** the following statements :
+
+### Math extension config
+
+For more see  http://www.mediawiki.org/wiki/Extension:Math
+```
+$wgMathValidModes = array('source');
+$wgDefaultUserOptions['math'] = 'source';
+$wgMathDisableTexFilter = 'always';
+```
+
+### TextExtracts extension config
+
+For more see  http://www.mediawiki.org/wiki/Extension:TextExtracts
+```
+# Configuration for TextExtracts which removes noisy tags
+$wgExtractsRemoveClasses = array( '.metadata', 'span.coordinates', 'span.geo-multi-punct', 'span.geo-nondefault', '#coordinates', '.reflist', '.citation', '#toc', '.tocnumber', '.references', '.reference', '.noprint');
+```
+### Scribunto extension config
+
+```
+$wgTemplateDataUseGUI = false;
+$wgScribuntoDefaultEngine = 'luastandalone'; # faster but needs configuration read http://www.mediawiki.org/wiki/Extension:Scribunto
+$wgScribuntoEngineConf['luastandalone']['errorFile'] = 'lua_error.log';
+```
+
+
 ## FR example
 * Maping between LocalSettings.php and LocalLanguageAdapted setting in docker-compose_fr.yml 
 * sudo docker-compose -f docker-compose_fr.yml up -d --build --force-recreate 
