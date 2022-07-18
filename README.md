@@ -54,7 +54,8 @@ $wgScribuntoEngineConf['luastandalone']['errorFile'] = 'lua_error.log';
 * sudo docker-compose -f docker-compose_fr.yml up -d --build --force-recreate 
 * sudo docker run -it --rm mediawiki_custom /bin/bash 
 
-
+## RO 
+1091500
 ## WHICH EXTENSION INSTALLING ?
 https://fr.wikipedia.org/wiki/Special:Version
 
