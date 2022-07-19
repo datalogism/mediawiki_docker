@@ -75,6 +75,8 @@ files need to be decompressed...
 loading an entiere wiki is very long > 14articles /sec
 So for the En version it must take 6months...
 
+> PB : sanitized-css
+
 
 ## Test API
 
