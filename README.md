@@ -77,6 +77,7 @@ So for the En version it must take 6months...
 
 > PB : sanitized-css
 > Extension:Translate + Extension:Campaigns
+https://www.mediawiki.org/wiki/Extension:Wikibase_Client
 
 ## Test API
 
