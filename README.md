@@ -84,6 +84,7 @@ https://www.mediawiki.org/wiki/Extension:Wikibase_Client
 http://localhost:8080/api.php?action=query&format=json&prop=extracts&titles=1545
 
 
+php importDump.php --conf ../LocalSettings.php --namespaces 10 /var/data/dumps/frwiki-20220620-pages-articles-multistream.xml
 
 ## TO DO 
 * CAN WE AUTOMATE THE CREATION OF A WIKI ? 
