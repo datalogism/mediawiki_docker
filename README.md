@@ -32,6 +32,16 @@ We generally install first basic packages for git/unzipping...
 We also are installing then composer for building the modules that need to be. 
 We finnaly add right for Lua engine.
 
+### LocalSetting file 
+
+For increasing the memory capacity of the Wiki you could have to adjust the memory limit :  
+```
+ini_set('memory_limit', '1024M');
+```
+All the modules need to be activated as follow :
+```
+wfLoadExtension( 'CategoryTree' );
+```
 Some modules need to configurated in the LocalSetting file :
 * [Math]
 ```
@@ -52,63 +62,62 @@ $wgTemplateDataUseGUI = false;
 $wgScribuntoDefaultEngine = 'luastandalone'; # faster but needs configuration read http://www.mediawiki.org/wiki/Extension:Scribunto
 $wgScribuntoEngineConf['luastandalone']['errorFile'] = 'lua_error.log';
 ```
+## RUNING YOUR CUSTOM DOCKER
 
+For a french wiki : 
+* Maping between LocalSettings.php and LocalLanguageAdapted setting in docker-compose_fr.yml 
+```
+sudo docker-compose -f docker-compose_fr.yml up -d --build --force-recreate 
+```
+For accesing to the container :
+```
+sudo docker run -it --rm mediawiki_custom /bin/bash 
+```
 ## Updating the database schema
 
-Some package are working on reshaped or new objects for it you may need to update de database with the following script: 
+Some package are working on reshaped or new objects for it you may need to update de database with the following script from the container : 
 https://www.mediawiki.org/wiki/Manual:Update.php
 
 ## Loading a dump
 
-A dump could be load with : https://www.mediawiki.org/wiki/Manual:ImportDump.php
+A dump could be load  from the container with (14articles /sec) :
+* https://www.mediawiki.org/wiki/Manual:ImportDump.php
+* https://www.mediawiki.org/wiki/Manual:Importing_XML_dumps
 A little wikipedia could be easily build in a day (the romanian for example), 
 However with a large wiki like the English one the loading time of the entiere chapter very long (55 days at that rate to import the 55,000,000 pages (as of March 2022) in the English Wikipedia)
 
+For loading a dump do :
+```
+php importDump.php --conf ../LocalSettings.php /path_to/dumpfile.xml.gz
+```
+
+check also the option --namespaces / --skip-to that could be usefull for monitoring the load
 
 
 ## Experiments made
 
+### Romanian wiki
 
-* Maping between LocalSettings.php and LocalLanguageAdapted setting in docker-compose_fr.yml 
-* sudo docker-compose -f docker-compose_fr.yml up -d --build --force-recreate 
-* sudo docker run -it --rm mediawiki_custom /bin/bash 
+Could be done in a day
 
-## RO 
-1091500
-## WHICH EXTENSION INSTALLING ?
-https://fr.wikipedia.org/wiki/Special:Version
+### Loading only parsing material 
 
-## Import
-
-https://www.mediawiki.org/wiki/Manual:Importing_XML_dumps
-https://www.mediawiki.org/wiki/Manual:ImportDump.php?tableofcontents=0
-
+An alternative to the building of a complete could be to load only the modules and the template of a wiki :
 ```
-php importDump.php --conf ../LocalSettings.php /var/data/dumps/${lang}wiki-20220701-pages-articles-multistream.xml --username-prefix=""
-files need to be decompressed... 
+> php importDump.php --conf ../LocalSettings.php --namespaces 10 /var/data/dumps/frwiki-20220620-pages-articles-multistream.xml
+> php importDump.php --conf ../LocalSettings.php --namespaces 828 /var/data/dumps/frwiki-20220620-pages-articles-multistream.xml
 ```
+I took a day for french wiki.
 
-### issues 
-
-* As said in this article : https://mindmachine.co.uk/write-up/write-ups/creating-a-local-copy-of-wikipedia/?v=86d8d92aba9e
-loading an entiere wiki is very long > 14articles /sec
-So for the En version it must take 6months...
-
-> PB : sanitized-css
-> Extension:Translate + Extension:Campaigns
+Unfortunatly by this way couldn't load wikibase depending data : 
 https://www.mediawiki.org/wiki/Extension:Wikibase_Client
 
 ## Test API
 
 http://localhost:8080/api.php?action=query&format=json&prop=extracts&titles=1545
 
+## Parsing the French wiki with a mediawiki clone parser :
 
-php importDump.php --conf ../LocalSettings.php --namespaces 10 /var/data/dumps/frwiki-20220620-pages-articles-multistream.xml
-
-## TO DO 
-* CAN WE AUTOMATE THE CREATION OF A WIKI ? 
-php install.php --conf /var/www/html/LocalSettings_base.php --server http://localhost:8080 --pass dbpedia2022 --dbserver database --dbname my_wiki --installdbpass dbpedia2022 my_wiki wikiuser 
-
-* Need to be tested with measure for en and fr 
--> Loading time
--> API requests answers time
+Using the action=parse API endpoint with contentmodel=wikitext & text=wikicode parameters,
+the average parsing time of a page is equal to 0,17 sec by page it took almost 4 days for 4 087 249 pages.
+ 
