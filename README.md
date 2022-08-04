@@ -1,4 +1,4 @@
-# mediawiki_docker
+# Mediawiki docker
 
 extends https://github.com/wikimedia/mediawiki-docker
 See https://blog.programster.org/deploy-your-own-mediawiki-wiki for more informations
@@ -16,6 +16,8 @@ Each mediawiki clone must be initialized as follow :
 * go to http://localhost:8080/ > click on Setup Wiki
 * Enter "database" as hostname / and MYSQL user name & password definied in docker-compose_begin.yml
 > SAVE FILE in docker dir as the fr example
+
+**An command line alternative exists !** : [use the install.php script](https://www.mediawiki.org/wiki/Manual:Install.php)
 
 ## /!\ CUSTUMIZING THE WIKI
 
@@ -51,9 +53,18 @@ $wgScribuntoDefaultEngine = 'luastandalone'; # faster but needs configuration re
 $wgScribuntoEngineConf['luastandalone']['errorFile'] = 'lua_error.log';
 ```
 
+## Updating the database schema
+
+Some package are working on reshaped or new objects for it you may need to update de database with the following script: 
+https://www.mediawiki.org/wiki/Manual:Update.php
+
 ## Loading a dump
 
-## Limitation the dump loading
+A dump could be load with : https://www.mediawiki.org/wiki/Manual:ImportDump.php
+A little wikipedia could be easily build in a day (the romanian for example), 
+However with a large wiki like the English one the loading time of the entiere chapter very long (55 days at that rate to import the 55,000,000 pages (as of March 2022) in the English Wikipedia)
+
+
 
 ## Experiments made
 
