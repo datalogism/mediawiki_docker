@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "wiki_ro";
-$wgMetaNamespace = "Wiki_ro";
+$wgSitename = "wiki_ro2";
+$wgMetaNamespace = "Wiki_ro2";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -30,7 +30,7 @@ $wgMetaNamespace = "Wiki_ro";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost:8080";
+$wgServer = "http://localhost:8082";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -53,10 +53,10 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "database";
-$wgDBname = "wikipedia";
-$wgDBuser = "wikipedia";
-$wgDBpassword = "wikipedia";
+$wgDBserver = "database_test";
+$wgDBname = "my_wiki";
+$wgDBuser = "root";
+$wgDBpassword = "wikipediaw";
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -105,14 +105,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "1b06f137e9f85e8eaf9364f26c9abff2072481401d2125d6639fbf0ad4a31a61";
+$wgSecretKey = "74d7ec281d6ca986f79e13acf1d0320729e979b2fcf014fdd14181877998d758";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "122d5d6b1458cef2";
+$wgUpgradeKey = "fa9b04475b47c3b1";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -142,10 +142,9 @@ wfLoadSkin( 'Vector' );
 # The following extensions were automatically enabled:
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
-wfLoadExtension( 'CiteThisPage' );
-wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
+wfLoadExtension( 'Interwiki' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'ReplaceText' );
@@ -153,15 +152,18 @@ wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
-
-## NEWS
-#wfLoadExtension( 'TemplateStyles' );
-#wfLoadExtension( 'InputBox' );
-#wfLoadExtension( 'Campaigns' );
-
+wfLoadExtension( 'Campaigns' );
+wfLoadExtension( 'Babel' );
+wfLoadExtension( 'LabeledSectionTransclusion' );
+wfLoadExtension( 'Math' );
+wfLoadExtension( 'BiblioPlus' );
+wfLoadExtension( 'Charinsert' );
+wfLoadExtension( 'TemplateStyles' );
 # End of automatically generated settings.
 # Add more configuration options below.
-
+wfLoadExtension( 'EventLogging' );
+$wgEventLoggingBaseUri = '/beacon/event';
+$wgEventLoggingServiceUri = '/beacon/intake-analytics';
 # configure math extension
 $wgMathValidModes = array('source');
 $wgDefaultUserOptions['math'] = 'source';

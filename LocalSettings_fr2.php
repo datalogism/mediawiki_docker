@@ -15,12 +15,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
+ini_set('memory_limit', '1024M');
 
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "wiki_ro";
-$wgMetaNamespace = "Wiki_ro";
+$wgSitename = "wiki_fr";
+$wgMetaNamespace = "Wiki_fr";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -95,7 +96,7 @@ $wgPingback = true;
 $wgShellLocale = "C.UTF-8";
 
 # Site language code, should be one of the list in ./languages/data/Names.php
-$wgLanguageCode = "ro";
+$wgLanguageCode = "fr";
 
 # Time zone
 $wgLocaltimezone = "UTC";
@@ -105,14 +106,14 @@ $wgLocaltimezone = "UTC";
 ## be publicly accessible from the web.
 #$wgCacheDirectory = "$IP/cache";
 
-$wgSecretKey = "1b06f137e9f85e8eaf9364f26c9abff2072481401d2125d6639fbf0ad4a31a61";
+$wgSecretKey = "6d216655ceaddf4c3b21d58267c0594eef6a7e17dbb2b3b1d07df5fd12bddb8f";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "122d5d6b1458cef2";
+$wgUpgradeKey = "7bcbfd57aa619848";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -143,7 +144,6 @@ wfLoadSkin( 'Vector' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
 wfLoadExtension( 'CiteThisPage' );
-wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'ParserFunctions' );
@@ -153,15 +153,24 @@ wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
+wfLoadExtension( 'Campaigns' );
+wfLoadExtension( 'Babel' );
+wfLoadExtension( 'LabeledSectionTransclusion' );
+wfLoadExtension( 'EventLogging' );
+wfLoadExtension( 'Math' );
+wfLoadExtension( 'BiblioPlus' );
+wfLoadExtension( 'Charinsert' );
+wfLoadExtension( 'TemplateStyles' );
+wfLoadExtension( 'Echo' );
+wfLoadExtension( 'MassMessage' );
+wfLoadExtension( 'Flow' );
 
-## NEWS
-#wfLoadExtension( 'TemplateStyles' );
-#wfLoadExtension( 'InputBox' );
-#wfLoadExtension( 'Campaigns' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
-
+wfLoadExtension( 'EventLogging' );
+$wgEventLoggingBaseUri = '/beacon/event';
+$wgEventLoggingServiceUri = '/beacon/intake-analytics';
 # configure math extension
 $wgMathValidModes = array('source');
 $wgDefaultUserOptions['math'] = 'source';
@@ -172,3 +181,9 @@ $wgExtractsRemoveClasses = array( '.metadata', 'span.coordinates', 'span.geo-mul
 
 $wgTemplateDataUseGUI = false;
 $wgScribuntoDefaultEngine = 'luastandalone'; # faster but needs configuration read http://www.mediawiki.org/wiki/Extension:Scribunto
+
+
+# End of automatically generated settings.
+# Add more configuration options below.
+
+

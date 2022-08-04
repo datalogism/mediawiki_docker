@@ -196,3 +196,4 @@ $wgExtractsRemoveClasses = array( '.metadata', 'span.coordinates', 'span.geo-mul
 
 $wgTemplateDataUseGUI = false;
 $wgScribuntoDefaultEngine = 'luastandalone'; # faster but needs configuration read http://www.mediawiki.org/wiki/Extension:Scribunto
+$wgScribuntoEngineConf['luastandalone']['errorFile'] = 'lua_error.log';

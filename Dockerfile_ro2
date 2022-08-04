@@ -8,6 +8,9 @@ COPY dumps/ro /var/data/dumps
 #RUN bunzip2 /var/data/dumps/*.bz2
 RUN chmod -R 755 includes
 RUN chmod -R 775 extensions
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-EventLogging.git EventLogging --branch REL1_37
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-TemplateStyles.git TemplateStyles --branch REL1_37
+RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Campaigns.git Campaigns --branch REL1_37
 RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Babel.git Babel --branch REL1_37
 RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-LabeledSectionTransclusion.git LabeledSectionTransclusion --branch REL1_37
 RUN cd extensions && git clone https://github.com/wikimedia/mediawiki-extensions-Math.git Math --branch REL1_37
