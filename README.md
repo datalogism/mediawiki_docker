@@ -17,31 +17,33 @@ Each mediawiki clone must be initialized as follow :
 * Enter "database" as hostname / and MYSQL user name & password definied in docker-compose_begin.yml
 > SAVE FILE in docker dir as the fr example
 
-## /!\ CUSTUMIZING LocalSettings.php
+## /!\ CUSTUMIZING THE WIKI
 
 All the extensions used in a wikipedia are generally listed into the SPecial:Version page of each wiki : 
 * french one : https://fr.wikipedia.org/wiki/Special:Version
-for it you need to add in your **LocalSettings.php** th
 
-### Math extension config
+### DockerFile Settings
 
-For more see  http://www.mediawiki.org/wiki/Extension:Math
+You will first need to install the interresting modules you want to integrate to your wiki as follow : 
+https://github.com/datalogism/mediawiki_docker/blob/main/DockerFIles/Dockerfile_fr2
+We generally install first basic packages for git/unzipping...
+We also are installing then composer for building the modules that need to be. 
+We finnaly add right for Lua engine.
+
+Some modules need to configurated in the LocalSetting file :
+* [Math]
 ```
 $wgMathValidModes = array('source');
 $wgDefaultUserOptions['math'] = 'source';
 $wgMathDisableTexFilter = 'always';
 ```
-
-### TextExtracts extension config
-
-
-
-For more see  http://www.mediawiki.org/wiki/Extension:TextExtracts
+* [TextExtracts](http://www.mediawiki.org/wiki/Extension:TextExtracts)
 ```
 # Configuration for TextExtracts which removes noisy tags
 $wgExtractsRemoveClasses = array( '.metadata', 'span.coordinates', 'span.geo-multi-punct', 'span.geo-nondefault', '#coordinates', '.reflist', '.citation', '#toc', '.tocnumber', '.references', '.reference', '.noprint');
 ```
-### Scribunto extension config
+
+* [Scribunto]
 
 ```
 $wgTemplateDataUseGUI = false;
@@ -49,8 +51,13 @@ $wgScribuntoDefaultEngine = 'luastandalone'; # faster but needs configuration re
 $wgScribuntoEngineConf['luastandalone']['errorFile'] = 'lua_error.log';
 ```
 
+## Loading a dump
 
-## FR example
+## Limitation the dump loading
+
+## Experiments made
+
+
 * Maping between LocalSettings.php and LocalLanguageAdapted setting in docker-compose_fr.yml 
 * sudo docker-compose -f docker-compose_fr.yml up -d --build --force-recreate 
 * sudo docker run -it --rm mediawiki_custom /bin/bash 
