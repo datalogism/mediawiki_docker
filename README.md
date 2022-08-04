@@ -1,10 +1,9 @@
 # mediawiki_docker
 
 extends https://github.com/wikimedia/mediawiki-docker
-
 See https://blog.programster.org/deploy-your-own-mediawiki-wiki for more informations
 
-## FIRST RUN
+## FIRST RUN : GENERATE A LocalSetting.php file
 
 before all you need to be sure that docker is running : 
 * ``` sudo systemctl enable docker ```
@@ -18,11 +17,11 @@ Each mediawiki clone must be initialized as follow :
 * Enter "database" as hostname / and MYSQL user name & password definied in docker-compose_begin.yml
 > SAVE FILE in docker dir as the fr example
 
-/!\ change if needed > add packages or delete some wfLoadSkin( 'MinervaNeue' ); for example get me errors
-
 ## /!\ CUSTUMIZING LocalSettings.php
 
-Some module of mediawiki needs to be configured for working properly, for it you need to add in your **LocalSettings.php** the following statements :
+All the extensions used in a wikipedia are generally listed into the SPecial:Version page of each wiki : 
+* french one : https://fr.wikipedia.org/wiki/Special:Version
+for it you need to add in your **LocalSettings.php** th
 
 ### Math extension config
 
@@ -34,6 +33,8 @@ $wgMathDisableTexFilter = 'always';
 ```
 
 ### TextExtracts extension config
+
+
 
 For more see  http://www.mediawiki.org/wiki/Extension:TextExtracts
 ```
